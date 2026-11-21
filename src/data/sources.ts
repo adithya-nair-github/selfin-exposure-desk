@@ -1,0 +1,246 @@
+import type { Source } from "@/lib/types";
+
+export const SOURCES: Record<string, Source> = {
+  "selfin-site": {
+    id: "selfin-site",
+    label: "Selfin website",
+    url: "https://selfin.app/",
+    accessed: "2026-11-21",
+    status: "checked",
+  },
+  "selfin-hotw": {
+    id: "selfin-hotw",
+    label: 'Selfin LinkedIn "Hedge of the week (illustrative numbers)"',
+    url: "https://www.linkedin.com/posts/selfinltd_hedge-of-the-week-illustrative-numbers-activity-7521974099028508672-Xcah",
+    accessed: "2026-11-21",
+    status: "checked",
+  },
+  "paula-x-otc": {
+    id: "paula-x-otc",
+    label: 'Paula Gutierrez on X: "PM block trades or OTC swaps when needed"',
+    url: "https://x.com/paulaguti_12/status/2123237398309933282",
+    accessed: "2026-11-21",
+    status: "unverified",
+  },
+  "kalshi-inst": {
+    id: "kalshi-inst",
+    label: "Kalshi Institutional (block trades, custom contracts)",
+    url: "https://institutional.kalshi.com/",
+    accessed: "2026-11-21",
+    status: "checked",
+  },
+  "kalshi-block-ns": {
+    id: "kalshi-block-ns",
+    label: "Kalshi CFTC filing, 25,000-contract block minimum (non-sports)",
+    url: "https://www.cftc.gov/filings/orgrules/rules0701268684.pdf",
+    accessed: "2026-11-21",
+    status: "checked",
+  },
+  "kalshi-block-sp": {
+    id: "kalshi-block-sp",
+    label: "Kalshi CFTC filing, 50,000-contract block minimum (sports)",
+    url: "https://www.cftc.gov/filings/orgrules/rules0701268688.pdf",
+    accessed: "2026-11-21",
+    status: "checked",
+  },
+  "pm-blocks": {
+    id: "pm-blocks",
+    label: "Polymarket US block trade specifications and fees",
+    url: "https://www.polymarketexchange.com/block-trades.html",
+    accessed: "2026-11-21",
+    status: "checked",
+  },
+  "pm-blocks-docs": {
+    id: "pm-blocks-docs",
+    label: "Polymarket US block trading guide",
+    url: "https://docs.polymarket.us/trader-guide/block-trading",
+    accessed: "2026-11-21",
+    status: "checked",
+  },
+  "pm-ib": {
+    id: "pm-ib",
+    label: "Polymarket US introducing broker requirements",
+    url: "https://docs.polymarket.us/partners/partner-types/ibs",
+    accessed: "2026-11-21",
+    status: "checked",
+  },
+  "cftc-anprm": {
+    id: "cftc-anprm",
+    label: "CFTC Prediction Markets ANPRM (RIN 3038-AF65)",
+    url: "https://www.cftc.gov/LawRegulation/FederalRegister/proposedrules/2026-05105.html",
+    accessed: "2026-11-21",
+    status: "checked",
+  },
+  "ca6-schuler": {
+    id: "ca6-schuler",
+    label: "KalshiEX LLC v. Schuler (6th Cir., 25 Sep 2026)",
+    url: "https://law.justia.com/cases/federal/appellate-courts/ca6/26-3196/26-3196-2026-09-25.html",
+    accessed: "2026-11-21",
+    status: "checked",
+  },
+  ecp: {
+    id: "ecp",
+    label: "7 U.S.C. §1a(18) Eligible contract participant",
+    url: "https://uscode.house.gov/us/usc/119-142/t7/s1a/",
+    accessed: "2026-11-21",
+    status: "checked",
+  },
+  "kalshi-api-epl": {
+    id: "kalshi-api-epl",
+    label: "Kalshi public API: KXEPLRELEGATION-27",
+    url: "https://api.elections.kalshi.com/trade-api/v2/markets?event_ticker=KXEPLRELEGATION-27",
+    accessed: "2026-11-21",
+    status: "checked",
+  },
+  "kalshi-book-cov": {
+    id: "kalshi-book-cov",
+    label: "Kalshi public API: KXEPLRELEGATION-27-COV order book (no key)",
+    url: "https://api.elections.kalshi.com/trade-api/v2/markets/KXEPLRELEGATION-27-COV/orderbook",
+    accessed: "2026-11-21",
+    status: "checked",
+  },
+  "kalshi-api-h100": {
+    id: "kalshi-api-h100",
+    label: "Kalshi public API: KXH100MAX",
+    url: "https://api.elections.kalshi.com/trade-api/v2/markets?series_ticker=KXH100MAX&status=open",
+    accessed: "2026-11-21",
+    status: "checked",
+  },
+  "deloitte-cov": {
+    id: "deloitte-cov",
+    label: "Deloitte ARFF 2026 via Coventry Live",
+    url: "https://www.coventrytelegraph.net/sport/football/football-news/coventry-city-set-staggering-365m-34261227",
+    accessed: "2026-11-21",
+    status: "checked",
+  },
+  parachute: {
+    id: "parachute",
+    label:
+      "Parachute payments 2026/27 (Teesside Live; used only for the ≈£55m year-1 and <£11m Championship figures)",
+    url: "https://www.gazettelive.co.uk/sport/efl-championship-parachute-payments-202627-34103058",
+    accessed: "2026-11-21",
+    status: "checked",
+  },
+  "pl-handbook": {
+    id: "pl-handbook",
+    label:
+      "Premier League Handbook (parachute payments: 55% / 45%; no third year for a club relegated after one PL season)",
+    url: "https://www.premierleague.com/en/media/publications",
+    accessed: "2026-11-21",
+    status: "checked",
+  },
+  "pl-central": {
+    id: "pl-central",
+    label:
+      "Bottom PL club received ≈£109m central payments in 2025/26 (Sportico / Deloitte figures via sportslook)",
+    url: "https://www.sportslook.net/premier-league-promotion-value/",
+    accessed: "2026-11-21",
+    status: "checked",
+  },
+  "ft-king": {
+    id: "ft-king",
+    label:
+      'FT: "The commodities trader aiming to challenge sheikhs and billionaires on the football pitch"',
+    url: "https://www.ft.com/content/3f0ad25b-68f0-4913-b15c-7166d2ca798f",
+    accessed: "2026-11-21",
+    status: "checked",
+  },
+  "ac-q3": {
+    id: "ac-q3",
+    label: "Air Canada Q3 2025 estimated results (strike cost)",
+    url: "https://www.aircanada.com/media/air-canada-provides-third-quarter-2025-estimated-results-and-updated-full-year-2025-guidance/",
+    accessed: "2026-11-21",
+    status: "checked",
+  },
+  "sp-westjet": {
+    id: "sp-westjet",
+    label: "S&P Global: WestJet downgrade (strike impact)",
+    url: "https://www.spglobal.com/ratings/en/regulatory/article/-/view/type/HTML/id/3620900",
+    accessed: "2026-11-21",
+    status: "checked",
+  },
+  "fortune-flights": {
+    id: "fortune-flights",
+    label: "Fortune: Kalshi pauses flight cancellation contracts (16 Jul 2026)",
+    url: "https://fortune.com/2026/07/16/kalshi-flight-cancellations/",
+    accessed: "2026-11-21",
+    status: "checked",
+  },
+  "coindesk-flightaware": {
+    id: "coindesk-flightaware",
+    label:
+      "CoinDesk: FlightAware drops Kalshi lawsuit (dismissed without prejudice 11 Aug 2026, reported 12 Aug)",
+    url: "https://www.coindesk.com/policy/2026/08/12/flightaware-drops-kalshi-lawsuit-over-a-market-niche-that-data-shows-it-never-took-off",
+    accessed: "2026-11-21",
+    status: "checked",
+  },
+  "kalshi-airportdelay": {
+    id: "kalshi-airportdelay",
+    label: "Kalshi AIRPORTDELAY contract terms",
+    url: "https://assets.kalshi.com/contract_terms/AIRPORTDELAY.pdf",
+    accessed: "2026-11-21",
+    status: "checked",
+  },
+  "covers-faa": {
+    id: "covers-faa",
+    label: "Covers: FAA ground stop drives $6m+ Kalshi volume (13 Nov 2026)",
+    url: "https://www.covers.com/industry/faa-ground-stoppage-leads-to-millions-in-trades-college-football-chaos-nov-14-2026",
+    accessed: "2026-11-21",
+    status: "checked",
+  },
+  "jblu-10k": {
+    id: "jblu-10k",
+    label: "JetBlue 2025 Form 10-K",
+    url: "https://www.sec.gov/Archives/edgar/data/1158463/000115846326000007/jblu-20251231.htm",
+    accessed: "2026-11-21",
+    status: "unverified",
+  },
+  "jblu-q4": {
+    id: "jblu-q4",
+    label: "JetBlue Q4/FY2025 results",
+    url: "https://ir.jetblue.com/news/news-details/2026/JetBlue-Announces-Fourth-Quarter-2025-Results/default.aspx",
+    accessed: "2026-11-21",
+    status: "unverified",
+  },
+  "ornn-h100": {
+    id: "ornn-h100",
+    label: "Ornn OCPI-H100 rental price index",
+    url: "https://data.ornn.com/markets/h100-sxm",
+    accessed: "2026-11-21",
+    status: "checked",
+  },
+  "ornn-bbg": {
+    id: "ornn-bbg",
+    label: "Ornn indices on Bloomberg / ICE futures status",
+    url: "https://data.ornn.com/markets/bloomberg",
+    accessed: "2026-11-21",
+    status: "checked",
+  },
+  "ice-hpr": {
+    id: "ice-hpr",
+    label: "ICE OCPI H100 Future (HPR) spec",
+    url: "https://www.ice.com/products/83050006/Ornn-Compute-Price-Index-OCPI-H100-Future",
+    accessed: "2026-11-21",
+    status: "checked",
+  },
+  "sd-forward": {
+    id: "sd-forward",
+    label: "Silicon Data GPU forward curve",
+    url: "https://www.silicondata.com/products/forward-curve",
+    accessed: "2026-11-21",
+    status: "checked",
+  },
+  "pl-faq": {
+    id: "pl-faq",
+    label: "Premier League 2025/26 relegation FAQ",
+    url: "https://www.premierleague.com/en/news/4657245/202526-premier-league-relegation-faq",
+    accessed: "2026-11-21",
+    status: "checked",
+  },
+};
+
+export const SOURCE_LIST: Source[] = Object.values(SOURCES);
+
+export function getSource(id: string): Source | undefined {
+  return SOURCES[id];
+}

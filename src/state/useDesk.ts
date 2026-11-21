@@ -180,12 +180,14 @@ export function useDesk(): DeskStore {
     applyScenario("coventry"),
   );
 
+  // Restore once on mount only. Depending on scenarioId here fights the
+  // persist effect and ping-pongs scenarios (visible as UI blinking).
   useEffect(() => {
     const stored = readStoredScenarioId();
-    if (stored !== null && stored !== state.scenarioId) {
+    if (stored !== null) {
       dispatch({ type: "restore", id: stored });
     }
-  }, [state.scenarioId]);
+  }, []);
 
   useEffect(() => {
     persistScenarioId(state.scenarioId);

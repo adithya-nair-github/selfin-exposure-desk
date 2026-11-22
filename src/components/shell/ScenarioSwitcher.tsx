@@ -18,7 +18,7 @@ const ICONS: Record<ScenarioId, typeof Trophy> = {
 
 const SHORT: Record<ScenarioId, string> = {
   coventry: "Coventry",
-  aircanada: "Air Canada",
+  aircanada: "Air Can",
   gpu: "GPU",
   calibration: "Calibrate",
 };

@@ -71,7 +71,13 @@ export function PnLBridge({ state, dispatch }: PnLBridgeProps) {
                 </span>
               </div>
               <NumberField
-                label="Amount (£m)"
+                label={
+                  scenario.ccy === "GBP"
+                    ? "Amount (£m)"
+                    : scenario.ccy === "CAD"
+                      ? "Amount (C$m)"
+                      : "Amount ($m)"
+                }
                 value={li.amount.value}
                 step={1}
                 min={0}

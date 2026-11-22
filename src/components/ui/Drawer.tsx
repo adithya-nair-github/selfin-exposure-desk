@@ -24,23 +24,22 @@ export function Drawer({ open, onClose, title, children }: DrawerProps) {
     return () => window.removeEventListener("keydown", onKey);
   }, [open, onClose]);
 
+  if (!open) {
+    return null;
+  }
+
   return (
     <>
       <div
-        className={`fixed inset-0 z-40 bg-background/60 transition-opacity ${
-          open ? "opacity-100" : "pointer-events-none opacity-0"
-        }`}
-        aria-hidden={!open}
+        className="fixed inset-0 z-40 bg-background/60"
+        aria-hidden
         onClick={onClose}
       />
       <aside
-        className={`fixed right-0 top-0 z-50 flex h-full w-full max-w-md flex-col border-l border-border bg-card transition-transform duration-200 ${
-          open ? "translate-x-0" : "translate-x-full"
-        }`}
+        className="fixed right-0 top-0 z-50 flex h-full w-full max-w-md flex-col border-l border-border bg-card"
         role="dialog"
         aria-modal="true"
         aria-labelledby="drawer-title"
-        aria-hidden={!open}
       >
         <div className="flex items-center justify-between border-b border-border px-4 py-3">
           <h2 id="drawer-title" className="font-serif text-lg">

@@ -61,7 +61,7 @@ export function MemoTab({ state, dispatch }: MemoTabProps) {
 
       <article
         id="exposure-memo"
-        className="theme-light mx-auto max-w-[816px] rounded-md border border-border bg-background p-8 text-foreground shadow-none"
+        className="theme-light mx-auto max-w-[816px] rounded-md border border-border bg-background p-4 text-foreground shadow-none sm:p-8"
       >
         <header className="mb-6 border-b border-border pb-4">
           <SelfinMark showWordmark />

@@ -30,7 +30,7 @@ export function Modal({ open, onClose, title, children }: ModalProps) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4"
+      className="fixed inset-0 z-50 flex items-end justify-center p-0 sm:items-center sm:p-4"
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-title"
@@ -41,7 +41,7 @@ export function Modal({ open, onClose, title, children }: ModalProps) {
         aria-label="Close dialog backdrop"
         onClick={onClose}
       />
-      <div className="relative z-10 max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-md border border-white/[0.08] bg-card p-4 shadow-none">
+      <div className="relative z-10 max-h-[92vh] w-full max-w-lg overflow-y-auto rounded-t-md border border-white/[0.08] bg-card p-4 shadow-none sm:rounded-md">
         <div className="mb-4 flex items-center justify-between gap-2">
           <h2 id="modal-title" className="font-serif text-lg text-foreground">
             {title}

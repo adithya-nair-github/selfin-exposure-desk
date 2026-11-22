@@ -20,7 +20,7 @@ export function RightRail({ state, dispatch }: RightRailProps) {
   const swingH = hedge?.swingHedged ?? d.ladder?.payoutAtStress ?? 0;
 
   return (
-    <aside className="sticky top-20 space-y-3 rounded-md border border-white/[0.08] bg-card p-4 print:hidden">
+    <aside className="space-y-3 rounded-md border border-white/[0.08] bg-card p-3 sm:p-4 xl:sticky xl:top-20 print:hidden">
       <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-primary">
         Live summary
       </p>

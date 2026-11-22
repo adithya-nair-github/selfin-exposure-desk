@@ -49,6 +49,65 @@ function availabilityLabel(a: Account): string {
   return "Custom";
 }
 
+function AccountActions({
+  account,
+  dispatch,
+}: {
+  account: Account;
+  dispatch: Dispatch<Action>;
+}) {
+  if (account.scenarioId) {
+    return (
+      <button
+        type="button"
+        className="mt-2 h-10 w-full rounded-md bg-primary px-3 text-sm text-white hover:bg-primary-dark sm:h-9 sm:w-auto"
+        onClick={() => {
+          const id = account.scenarioId;
+          if (id) {
+            dispatch({ type: "setScenario", id });
+            dispatch({ type: "setActiveTab", tab: "hedge" });
+          }
+        }}
+      >
+        Draft memo
+      </button>
+    );
+  }
+
+  return (
+    <div className="mt-3 space-y-3 text-sm">
+      <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-primary">
+        Research brief
+      </p>
+      <ul className="list-inside list-disc text-muted-foreground">
+        {RESEARCH[account.vertical].map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+      <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-primary">
+        Research agent prompt
+      </p>
+      <pre className="overflow-x-auto rounded-md border border-border bg-muted p-2 text-xs whitespace-pre-wrap">
+        {RESEARCH_PROMPT}
+      </pre>
+      <button
+        type="button"
+        className="text-xs text-primary hover:underline"
+        onClick={() => {
+          void navigator.clipboard.writeText(RESEARCH_PROMPT).then(() => {
+            dispatch({
+              type: "setStatusMessage",
+              message: "Prompt copied",
+            });
+          });
+        }}
+      >
+        Copy prompt
+      </button>
+    </div>
+  );
+}
+
 export function CoverageTab({ dispatch }: CoverageTabProps) {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const selected = ACCOUNTS.find((a) => a.id === selectedId) ?? null;
@@ -58,7 +117,53 @@ export function CoverageTab({ dispatch }: CoverageTabProps) {
       <p className="rounded-md border border-border bg-muted px-3 py-2 text-sm">
         {ACCOUNTS_BANNER}
       </p>
-      <div className="overflow-x-auto">
+
+      {/* Mobile card list */}
+      <ul className="space-y-2 md:hidden">
+        {ACCOUNTS.map((a) => {
+          const open = selectedId === a.id;
+          return (
+            <li
+              key={a.id}
+              className="rounded-md border border-border bg-muted/40 p-3"
+            >
+              <button
+                type="button"
+                className="w-full text-left"
+                onClick={() => setSelectedId(open ? null : a.id)}
+                aria-expanded={open}
+              >
+                <div className="flex items-start justify-between gap-2">
+                  <span className="font-medium text-primary">{a.company}</span>
+                  <span className="shrink-0 text-[10px] uppercase tracking-wide text-muted-foreground">
+                    {a.vertical}
+                  </span>
+                </div>
+                <p className="mt-1 text-xs text-muted-foreground">{a.keyEvent}</p>
+                <p className="mt-1 font-mono text-[11px] text-muted-foreground">
+                  {a.mappedSeries}
+                </p>
+                <p className="mt-1 text-xs">{availabilityLabel(a)}</p>
+              </button>
+              {open ? (
+                <div className="mt-3 border-t border-border pt-3">
+                  {a.exposureAnchor ? (
+                    <div className="mb-2 text-xs">
+                      <span className="text-muted-foreground">Anchor: </span>
+                      <span>{a.exposureAnchor.value}</span>
+                      <SourceChip prov={a.exposureAnchor.prov} />
+                    </div>
+                  ) : null}
+                  <AccountActions account={a} dispatch={dispatch} />
+                </div>
+              ) : null}
+            </li>
+          );
+        })}
+      </ul>
+
+      {/* Desktop table */}
+      <div className="hidden overflow-x-auto md:block">
         <table className="w-full min-w-[720px] text-sm">
           <thead>
             <tr className="border-b border-border text-left text-muted-foreground">
@@ -116,57 +221,12 @@ export function CoverageTab({ dispatch }: CoverageTabProps) {
         </table>
       </div>
 
-      {selected ? (
-        <aside className="rounded-md border border-border bg-card p-4">
+      {selected && (
+        <aside className="hidden rounded-md border border-border bg-card p-4 md:block">
           <h3 className="font-serif text-lg">{selected.company}</h3>
-          {selected.scenarioId ? (
-            <button
-              type="button"
-              className="mt-2 h-9 rounded-md bg-primary px-3 text-sm text-white hover:bg-primary-dark"
-              onClick={() => {
-                const id = selected.scenarioId;
-                if (id) {
-                  dispatch({ type: "setScenario", id });
-                  dispatch({ type: "setActiveTab", tab: "hedge" });
-                }
-              }}
-            >
-              Draft memo
-            </button>
-          ) : (
-            <div className="mt-3 space-y-3 text-sm">
-              <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-primary">
-                Research brief
-              </p>
-              <ul className="list-inside list-disc text-muted-foreground">
-                {RESEARCH[selected.vertical].map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-              <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-primary">
-                Research agent prompt
-              </p>
-              <pre className="overflow-x-auto rounded-md border border-border bg-muted p-2 text-xs">
-                {RESEARCH_PROMPT}
-              </pre>
-              <button
-                type="button"
-                className="text-xs text-primary hover:underline"
-                onClick={() => {
-                  void navigator.clipboard.writeText(RESEARCH_PROMPT).then(() => {
-                    dispatch({
-                      type: "setStatusMessage",
-                      message: "Prompt copied",
-                    });
-                  });
-                }}
-              >
-                Copy prompt
-              </button>
-            </div>
-          )}
+          <AccountActions account={selected} dispatch={dispatch} />
         </aside>
-      ) : null}
+      )}
     </div>
   );
 }

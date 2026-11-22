@@ -42,9 +42,11 @@ export function SelfinMark({
         />
       </svg>
       {showWordmark ? (
-        <span className="flex items-baseline gap-1.5 text-sm">
+        <span className="flex min-w-0 items-baseline gap-1.5 text-sm">
           <span className="font-medium text-foreground">Selfin</span>
-          <span className="text-muted-foreground">/ Exposure Desk</span>
+          <span className="hidden truncate text-muted-foreground sm:inline">
+            / Exposure Desk
+          </span>
         </span>
       ) : null}
     </div>

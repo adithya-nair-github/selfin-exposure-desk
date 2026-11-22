@@ -44,38 +44,40 @@ export function MarketTab({ state, dispatch }: MarketTabProps) {
         </p>
       </div>
 
-      <table className="w-full text-sm">
-        <thead>
-          <tr className="border-b border-border text-left text-muted-foreground">
-            <th className="py-1 pr-2 font-normal">Last</th>
-            <th className="py-1 pr-2 font-normal">Bid</th>
-            <th className="py-1 pr-2 font-normal">Ask</th>
-            <th className="py-1 pr-2 font-normal">OI</th>
-            <th className="py-1 font-normal">Vol</th>
-          </tr>
-        </thead>
-        <tbody className="font-mono tabular-nums">
-          <tr className="border-b border-border">
-            <td className="py-2 pr-2">
-              {market.last ? fmtCents(market.last.value) : "—"}
-            </td>
-            <td className="py-2 pr-2">
-              {bid !== null ? fmtCents(bid) : "—"}
-              {market.bidSize !== null ? ` (${market.bidSize})` : ""}
-            </td>
-            <td className="py-2 pr-2">
-              {ask !== null ? fmtCents(ask) : "—"}
-              {market.askSize !== null ? ` (${market.askSize})` : ""}
-            </td>
-            <td className="py-2 pr-2 text-right">
-              {oi !== null ? fmtInt(oi) : "—"}
-            </td>
-            <td className="py-2 text-right">
-              {market.volume ? fmtInt(market.volume.value) : "—"}
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <div className="overflow-x-auto">
+        <table className="w-full min-w-[320px] text-sm">
+          <thead>
+            <tr className="border-b border-border text-left text-muted-foreground">
+              <th className="py-1 pr-2 font-normal">Last</th>
+              <th className="py-1 pr-2 font-normal">Bid</th>
+              <th className="py-1 pr-2 font-normal">Ask</th>
+              <th className="py-1 pr-2 font-normal">OI</th>
+              <th className="py-1 font-normal">Vol</th>
+            </tr>
+          </thead>
+          <tbody className="font-mono tabular-nums">
+            <tr className="border-b border-border">
+              <td className="py-2 pr-2">
+                {market.last ? fmtCents(market.last.value) : "—"}
+              </td>
+              <td className="py-2 pr-2">
+                {bid !== null ? fmtCents(bid) : "—"}
+                {market.bidSize !== null ? ` (${market.bidSize})` : ""}
+              </td>
+              <td className="py-2 pr-2">
+                {ask !== null ? fmtCents(ask) : "—"}
+                {market.askSize !== null ? ` (${market.askSize})` : ""}
+              </td>
+              <td className="py-2 pr-2 text-right">
+                {oi !== null ? fmtInt(oi) : "—"}
+              </td>
+              <td className="py-2 text-right">
+                {market.volume ? fmtInt(market.volume.value) : "—"}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
       {wide ? (
         <Badge variant="risk">Wide market / thin ask</Badge>

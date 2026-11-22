@@ -26,7 +26,7 @@ export function Segmented<T extends string>({
       <div
         role="group"
         aria-label={label}
-        className="inline-flex rounded-md border border-border p-0.5"
+        className="flex w-full flex-wrap rounded-md border border-border p-0.5 sm:inline-flex sm:w-auto"
       >
         {options.map((opt) => {
           const active = opt.value === value;
@@ -35,7 +35,7 @@ export function Segmented<T extends string>({
               key={opt.value}
               type="button"
               onClick={() => onChange(opt.value)}
-              className={`h-8 rounded px-3 text-sm transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 ${
+              className={`h-10 min-w-0 flex-1 rounded px-2 text-xs transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 sm:h-8 sm:flex-none sm:px-3 sm:text-sm ${
                 active
                   ? "bg-primary text-white"
                   : "bg-transparent text-muted-foreground hover:bg-accent hover:text-foreground"

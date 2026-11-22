@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Hedvig_Letters_Serif } from "next/font/google";
 import "./globals.css";
 
@@ -24,6 +24,12 @@ export const metadata: Metadata = {
   title: "Exposure Desk · Selfin",
   description:
     "Memo → quote → block. Size event hedges, check block liquidity, ship the exposure memo.",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#111213",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

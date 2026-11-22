@@ -42,7 +42,7 @@ export function Slider({
         step={step}
         value={value}
         onChange={(e) => onChange(Number(e.target.value))}
-        className="h-2 w-full cursor-pointer accent-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60"
+        className="h-8 w-full cursor-pointer accent-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/60 sm:h-2"
         aria-valuemin={min}
         aria-valuemax={max}
         aria-valuenow={value}

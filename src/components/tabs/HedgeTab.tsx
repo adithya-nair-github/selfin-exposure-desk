@@ -195,8 +195,8 @@ export function HedgeTab({ state, dispatch }: HedgeTabProps) {
           <table className="w-full text-sm">
             <thead>
               <tr className="border-b border-border text-left text-muted-foreground">
-                <th className="py-1">Outcome</th>
-                <th className="py-1 text-right">Unhedged</th>
+                <th className="py-1 pr-2">Outcome</th>
+                <th className="py-1 pr-2 text-right">Unhedged</th>
                 <th className="py-1 text-right">Hedged</th>
               </tr>
             </thead>
